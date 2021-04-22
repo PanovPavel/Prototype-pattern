@@ -34,8 +34,10 @@ public class Controller {
     @FXML
     public void initialize(){
         Rectangle rectangle = new Rectangle();
-        Rectangle rectangle2 = new Rectangle();
-        item = FXCollections.observableArrayList(rectangle, rectangle2);
+        Square square = new Square();
+        Triangle triangle=new Triangle();
+
+        item = FXCollections.observableArrayList(rectangle, square, triangle);
         listboxforfigure.setItems(item);
         listboxforfigure.setCellFactory(new Callback<ListView<Shape>, ListCell<Shape>>(){
             @Override
@@ -49,10 +51,9 @@ public class Controller {
     Canvas canvas = new Canvas();
 
    public void drawShapes(MouseEvent mouseEvent) {
-        Rectangle rectangle3 = new Rectangle();
         GraphicsContext gr = canvas.getGraphicsContext2D();
         int a =listboxforfigure.getSelectionModel().getSelectedIndex();
-        Shape new_figure = (Shape) rectangle3.clone();
+        Shape new_figure = (Shape) item.get(a).clone();
         new_figure.draw(gr, mouseEvent.getX(), mouseEvent.getY());
     }
 
