@@ -24,24 +24,31 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
+import javafx.util.*;
 
+import javafx.scene.control.ListCell;
 public class Controller {
-    ObservableList<Shape> items;
+    ObservableList<Shape> item;
     @FXML
     ListView listboxforfigure = new ListView();
     @FXML
     public void initialize(){
         Rectangle rectangle = new Rectangle();
         Rectangle rectangle2 = new Rectangle();
-        items = FXCollections.observableArrayList(rectangle, rectangle2);
-        listboxforfigure.setItems(items);
-        listboxforfigure.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        item = FXCollections.observableArrayList(rectangle, rectangle2);
+        listboxforfigure.setItems(item);
+        listboxforfigure.setCellFactory(new Callback<ListView<Shape>, ListCell<Shape>>(){
+            @Override
+            public ListCell<Shape> call(ListView<Shape> list) {
+                return new ShapeCell();
+            }
+        });
     }
 
     @FXML
     Canvas canvas = new Canvas();
 
-    public void drawShapes(MouseEvent mouseEvent) {
+   public void drawShapes(MouseEvent mouseEvent) {
         Rectangle rectangle3 = new Rectangle();
         GraphicsContext gr = canvas.getGraphicsContext2D();
         int a =listboxforfigure.getSelectionModel().getSelectedIndex();
@@ -49,7 +56,9 @@ public class Controller {
         new_figure.draw(gr, mouseEvent.getX(), mouseEvent.getY());
     }
 
-    public void click(ActionEvent actionEvent) {
-        System.out.println("123");
+    public void clear(ActionEvent actionEvent){
+        GraphicsContext gr = canvas.getGraphicsContext2D();
+        gr.clearRect(0,0,600,600);
     }
+
 }
