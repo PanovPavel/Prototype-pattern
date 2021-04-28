@@ -8,7 +8,6 @@
       <VBox prefHeight="597.0" prefWidth="204.0">
          <children>
             <Button mnemonicParsing="false" onAction="#clear" prefHeight="64.0" prefWidth="668.0" text="Clear" />
-            <TextField />
             <ListView fx:id="listboxforfigure" prefHeight="534.0" prefWidth="332.0" />
          </children>
       </VBox>

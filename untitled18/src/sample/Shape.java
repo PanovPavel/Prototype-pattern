@@ -5,9 +5,9 @@ import javafx.scene.Node;
 import javafx.scene.canvas.GraphicsContext;
 
 public abstract class Shape implements Cloneable{
-      String type;
-      String name;
-      Character prefix;
+    String type;
+    String name;
+    Character prefix;
     protected String style;
     protected double w;
     protected double h;

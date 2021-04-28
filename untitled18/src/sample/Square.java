@@ -2,10 +2,6 @@ package sample;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Pane;
-import javafx.scene.control.Label;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import javafx.scene.control.TextField;
 
 public class Square extends Shape {
@@ -22,11 +18,11 @@ public class Square extends Shape {
 
     @Override
     public void draw(Pane pane, Double pointX, Double pointY) {
-        Label field = (Label) getPicture();// для отображения
-        field.setPrefSize(w, h);
-        field.setLayoutX(pointX);
-        field.setLayoutY(pointY);
-        pane.getChildren().add(field);
+        TextField textField = (TextField) getPicture();// для отображения
+        textField.setPrefSize(w, h);
+        textField.setLayoutX(pointX);
+        textField.setLayoutY(pointY);
+        pane.getChildren().add(textField);
 
     }
 
@@ -34,7 +30,7 @@ public class Square extends Shape {
     public Node getPicture() {
         String text = new String(prefix.toString());
         text +=" "+name+":"+type;
-        Label field = new Label(text);
+        TextField field = new TextField(text);
         field.setStyle(style);
         return field;
     }

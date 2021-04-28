@@ -35,15 +35,13 @@ import javafx.scene.control.TextField;
 public class Controller {
     ObservableList<Shape> item;
     @FXML
+    Pane panels;
+    @FXML
     ListView listboxforfigure = new ListView();
     @FXML
     public void initialize(){
-        //Rectangle rectangle = new Rectangle();
-       //Triangle triangle=new Triangle();
         Square square = new Square();
-        //item = FXCollections.observableArrayList(rectangle, square, triangle);
         item = FXCollections.observableArrayList(square, square);
-
         listboxforfigure.setItems(item);
         listboxforfigure.setCellFactory(new Callback<ListView<Shape>, ListCell<Shape>>(){
             @Override
@@ -53,12 +51,7 @@ public class Controller {
         });
     }
 
-    @FXML
-    Canvas canvas = new Canvas();
-    @FXML
-    Pane panel;
-    @FXML
-    Pane panels;
+
     public void clear(ActionEvent actionEvent){
         panels.getChildren().clear();
     }
