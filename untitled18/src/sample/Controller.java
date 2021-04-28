@@ -1,39 +1,20 @@
 package sample;
-import javafx.fxml.*;
-import javafx.scene.effect.BlurType;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
-import static javafx.collections.FXCollections.observableArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import java.net.URL;
-import java.util.ResourceBundle;
 import  javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.effect.InnerShadow;
-import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseButton;
 import  javafx.scene.input.MouseEvent;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.collections.*;
 import javafx.collections.FXCollections;
-import javafx.scene.paint.Color;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.ArcType;
-import javafx.stage.Stage;
-import javafx.fxml.FXML;
 import javafx.util.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+
 public class Controller {
     ObservableList<Shape> item;
+    @FXML
+    Label label;
     @FXML
     Pane panels;
     @FXML
@@ -57,8 +38,10 @@ public class Controller {
     }
 
     public void drawShapes(MouseEvent mouseEvent) {
-        int a =listboxforfigure.getSelectionModel().getSelectedIndex();
-        Shape new_figure = (Shape) item.get(a).clone();
-        new_figure.draw(panels, mouseEvent.getX(), mouseEvent.getY());
+        if (mouseEvent.getButton() == MouseButton.PRIMARY) {
+            int a = listboxforfigure.getSelectionModel().getSelectedIndex();
+            Shape new_figure = (Shape) item.get(a).clone();
+            new_figure.draw(panels, mouseEvent.getX(), mouseEvent.getY());
+        }
     }
 }
