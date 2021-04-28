@@ -34,4 +34,6 @@ public abstract class Shape implements Cloneable{
         }
         return clone;
     }
+
+    public abstract void draw_for_list(Pane pane, double v, double v1);
 }

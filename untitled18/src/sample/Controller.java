@@ -21,8 +21,11 @@ public class Controller {
     ListView listboxforfigure = new ListView();
     @FXML
     public void initialize(){
-        Square square = new Square();
-        item = FXCollections.observableArrayList(square, square);
+        Nodes nodes = new Nodes();
+        Obj obj = new Obj();
+        ActiveObj activeObj = new ActiveObj();
+        Component component = new Component();
+        item = FXCollections.observableArrayList(nodes, obj, activeObj, component);
         listboxforfigure.setItems(item);
         listboxforfigure.setCellFactory(new Callback<ListView<Shape>, ListCell<Shape>>(){
             @Override

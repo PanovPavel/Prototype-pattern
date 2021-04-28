@@ -6,7 +6,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ListCell;
 
 class ShapeCell extends ListCell<Shape> {// класс Product
-
     @Override
     public void updateItem(Shape item, boolean empty) {
         super.updateItem(item, empty);
@@ -15,7 +14,7 @@ class ShapeCell extends ListCell<Shape> {// класс Product
             pane.setPrefSize(50, 80);// задание размера элемента отображения
             //GraphicsContext gr=cnv.getGraphicsContext2D();
             Shape item1=(Shape)item.clone();//текущая фигура из списка ObservableList
-            item1.draw(pane,1.0,1.0); // ее отрисовка на канве
+            item1.draw_for_list(pane,1.0,1.0); // ее отрисовка на канве
             setGraphic(pane); //установка канвы вместо cell
         }
     }
