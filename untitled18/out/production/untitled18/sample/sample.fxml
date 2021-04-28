@@ -1,19 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #B0E0E6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <VBox prefHeight="597.0" prefWidth="204.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#clear" prefHeight="64.0" prefWidth="668.0" text="Clear" />
-            <ListView fx:id="listboxforfigure" prefHeight="534.0" prefWidth="332.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="227.0" style="-fx-background-color: #B0E0E6; -fx-font-weight: 900;" text="Элементы управления " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <ListView fx:id="listboxforfigure" prefHeight="351.0" prefWidth="204.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin></ListView>
          </children>
       </VBox>
-      <VBox fillWidth="true" maxWidth="1.7976931348623157E308" minHeight="597.0">
+      <VBox alignment="TOP_CENTER" fillWidth="true" maxWidth="1.7976931348623157E308" minHeight="597.0">
          <children>
-            <Pane fx:id="panels" maxWidth="1.7976931348623157E308" onMouseClicked="#drawShapes" prefHeight="597.0" prefWidth="863.0" style="-fx-background-color: grey;" VBox.vgrow="ALWAYS" />
+            <HBox prefHeight="72.0" prefWidth="863.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="65.0" prefWidth="889.0" text="Холст" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Pane fx:id="panels" maxWidth="1.7976931348623157E308" onMouseClicked="#drawShapes" prefHeight="488.0" prefWidth="863.0" style="-fx-background-color: grey; -fx-border-color: black; -fx-border-width: 3;" VBox.vgrow="ALWAYS">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Pane>
+            <Button mnemonicParsing="false" onAction="#clear" prefHeight="64.0" prefWidth="668.0" style="-fx-max-width: 200; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 3; -fx-background-radius: 10;" text="Очистить">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin></Button>
          </children>
       </VBox>
    </children>
