@@ -1,12 +1,20 @@
 package sample;
-
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
+import javafx.scene.Node;
 import javafx.scene.canvas.GraphicsContext;
 
 public abstract class Shape implements Cloneable{
-    protected  String type;
-    public abstract void draw(GraphicsContext gr, Double pointX, Double pointY);
-
-
+      String type;
+      String name;
+      Character prefix;
+    protected String style;
+    protected double w;
+    protected double h;
+    protected double x;
+    protected double y;
+    public abstract void draw(Pane pane, Double pointX, Double pointY);
+    public abstract Node getPicture();
 
     @Override
     public String toString(){

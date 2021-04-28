@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Button mnemonicParsing="false" onAction="#clear" prefHeight="64.0" prefWidth="668.0" text="Clear" />
-      <ListView fx:id="listboxforfigure" prefHeight="180.0" prefWidth="600.0" />
-      <Canvas fx:id="canvas" height="327.0" onMouseClicked="#drawShapes" width="5000.0" VBox.vgrow="ALWAYS" />
+      <VBox prefHeight="597.0" prefWidth="204.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#clear" prefHeight="64.0" prefWidth="668.0" text="Clear" />
+            <ListView fx:id="listboxforfigure" prefHeight="534.0" prefWidth="332.0" />
+         </children>
+      </VBox>
+      <VBox fillWidth="true" maxWidth="1.7976931348623157E308" minHeight="597.0">
+         <children>
+            <Pane fx:id="panels" maxWidth="1.7976931348623157E308" onMouseClicked="#drawShapes" prefHeight="597.0" prefWidth="863.0" style="-fx-background-color: grey;" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
    </children>
-</VBox>
+</HBox>
