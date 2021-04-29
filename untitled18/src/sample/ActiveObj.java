@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 public class ActiveObj extends Shape{
     public ActiveObj(){
         prefix=new Character(' ');
-        name=new String("Active Objects");
+        name=new String("Активный объект");
         type=new String("");
         x=1;
         y=1;

@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
 public class Obj extends Shape{
     public Obj(){
         prefix=new Character(' ');
-        name=new String("Objects");
+        name=new String("Объект");
         type=new String("");
         x=1;
         y=1;

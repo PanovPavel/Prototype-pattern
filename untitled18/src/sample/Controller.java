@@ -13,12 +13,15 @@ import javafx.scene.control.Label;
 
 public class Controller {
     ObservableList<Shape> item;
+    ObservableList<AbstractProductArrow> item2;
     @FXML
     Label label;
     @FXML
     Pane panels;
     @FXML
     ListView listboxforfigure = new ListView();
+    @FXML
+    ListView listForArray = new ListView();
     @FXML
     public void initialize(){
         Nodes nodes = new Nodes();
@@ -31,6 +34,19 @@ public class Controller {
             @Override
             public ListCell<Shape> call(ListView<Shape> list) {
                 return new ShapeCell();
+            }
+        });
+
+        //линии
+        ArrowDependence arrowDependence = new FactoryDependence().CreateArrow(1, 5, 55, 55);
+        ArrowAssociation arrowAssociation = new FactoryAssociation().CreateArrow(1, 5, 55, 55);
+        ArrowFour arrowFour = new FactoryFour().CreateArrow(1, 5, 55, 55);
+        item2 =FXCollections.observableArrayList(arrowAssociation, arrowDependence, arrowFour);
+        listForArray.setItems(item2);
+        listForArray.setCellFactory(new Callback<ListView<AbstractProductArrow>, ListCell<AbstractProductArrow>>() {
+            @Override
+            public ListCell<AbstractProductArrow> call(ListView<AbstractProductArrow> param) {
+                return new ArrayCell();
             }
         });
     }

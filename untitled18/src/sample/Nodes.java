@@ -15,7 +15,7 @@ import javafx.scene.transform.Rotate;
 public class Nodes extends Shape{
     public Nodes(){
         prefix=new Character(' ');
-        name=new String("Node");
+        name=new String("Узел(Node)");
         type=new String("");
         x=1;
         y=1;

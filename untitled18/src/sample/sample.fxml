@@ -13,13 +13,14 @@
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <ListView fx:id="listboxforfigure" prefHeight="351.0" prefWidth="204.0">
+            <ListView fx:id="listboxforfigure" prefHeight="364.0" prefWidth="200.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </VBox.margin></ListView>
+            <ListView fx:id="listForArray" prefHeight="248.0" prefWidth="204.0" />
          </children>
       </VBox>
       <VBox alignment="TOP_CENTER" fillWidth="true" maxWidth="1.7976931348623157E308" minHeight="597.0">

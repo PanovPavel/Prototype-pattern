@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 public class Component extends Shape {
     public Component() {
         prefix = new Character(' ');
-        name = new String("Component");
+        name = new String("Компонент");
         type = new String("");
         x = 1;
         y = 1;
