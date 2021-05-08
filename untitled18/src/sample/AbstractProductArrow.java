@@ -2,6 +2,7 @@ package sample;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import javafx.scene.layout.Pane;
 
 public abstract class AbstractProductArrow implements Cloneable{
     Color color;
@@ -11,7 +12,7 @@ public abstract class AbstractProductArrow implements Cloneable{
     double endX;
     double endY;
 
-    public abstract void draw(GraphicsContext gc);
+    public abstract void draw(Pane pane);
 
     public Color getColor() {
         return color;

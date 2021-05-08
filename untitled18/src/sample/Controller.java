@@ -10,10 +10,13 @@ import javafx.util.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.Label;
-
+import javafx.scene.control.SelectionModel;
+import javafx.scene.input.DragEvent;
+import javafx.scene.control.SelectionMode;
 public class Controller {
     ObservableList<Shape> item;
     ObservableList<AbstractProductArrow> item2;
+    AbstractProductArrow new_arrow;
     @FXML
     Label label;
     @FXML
@@ -46,13 +49,17 @@ public class Controller {
         listForArray.setCellFactory(new Callback<ListView<AbstractProductArrow>, ListCell<AbstractProductArrow>>() {
             @Override
             public ListCell<AbstractProductArrow> call(ListView<AbstractProductArrow> param) {
-                return new ArrayCell();
+                return new ArrowCell();
             }
         });
     }
 
-
+    @FXML
+    public void clearSelect(MouseEvent mouseEvent) {
+        listboxforfigure.getSelectionModel().clearSelection();
+    }
     public void clear(ActionEvent actionEvent){
+
         panels.getChildren().clear();
     }
 
@@ -62,5 +69,18 @@ public class Controller {
             Shape new_figure = (Shape) item.get(a).clone();
             new_figure.draw(panels, mouseEvent.getX(), mouseEvent.getY());
         }
+    }
+
+    public void ArrowStart(MouseEvent mouseEvent) {
+        int b = listForArray.getSelectionModel().getSelectedIndex();
+        new_arrow = (AbstractProductArrow) item2.get(b).clone();
+        new_arrow.setStartX(mouseEvent.getX());
+        new_arrow.setStartY(mouseEvent.getY());
+    }
+
+    public void AroowEnd(MouseEvent mouseEvent) {
+        new_arrow.setEndX(mouseEvent.getX());
+        new_arrow.setEndY(mouseEvent.getY());
+        new_arrow.draw(panels);
     }
 }
