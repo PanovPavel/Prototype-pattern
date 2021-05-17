@@ -1,0 +1,233 @@
+@startuml
+
+title __MODEL's Class Diagram__\n
+
+  namespace sample {
+    namespace model {
+      interface sample.model.AbstractFactory {
+          {abstract} + CreateArrow()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      abstract class sample.model.AbstractProductArrow {
+          ~ color : Color
+          ~ endX : double
+          ~ endY : double
+          ~ startX : double
+          ~ startY : double
+          ~ width : double
+          + clone()
+          {abstract} + draw()
+          + getColor()
+          + getEndX()
+          + getEndY()
+          + getStartX()
+          + getStartY()
+          + getWidth()
+          + setColor()
+          + setEndX()
+          + setEndY()
+          + setStartX()
+          + setStartY()
+          + setWidth()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.ActiveObj {
+          + ActiveObj()
+          + draw()
+          + draw_for_list()
+          + getPicture()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.ArrowAssociation {
+          ~ arrowHeadSize : double
+          + ArrowAssociation()
+          + draw()
+          + drawArrowend()
+          + drawArrowstart()
+          + drawLine()
+          + setEndPoint()
+          + setStartPoint()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.ArrowCell {
+          + updateItem()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.ArrowDependence {
+          ~ arrowHeadSize : double
+          + ArrowDependence()
+          + draw()
+          + drawArrowend()
+          + drawArrowstart()
+          + drawLine()
+          + setEndPoint()
+          + setStartPoint()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.ArrowFour {
+          ~ arrowHeadSize : double
+          + ArrowFour()
+          + draw()
+          + drawArrowend()
+          + drawArrowstart()
+          + drawLine()
+          + setEndPoint()
+          + setStartPoint()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.Component {
+          + Component()
+          + draw()
+          + draw_for_list()
+          + getPicture()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.FactoryAssociation {
+          + CreateArrow()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.FactoryDependence {
+          + CreateArrow()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.FactoryFour {
+          + CreateArrow()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.Nodes {
+          + Nodes()
+          + draw()
+          + draw_for_list()
+          + getPicture()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.Obj {
+          + Obj()
+          + draw()
+          + draw_for_list()
+          + getPicture()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      abstract class sample.model.Shape {
+          # h : double
+          # style : String
+          # w : double
+          # x : double
+          # y : double
+          ~ name : String
+          ~ prefix : Character
+          ~ type : String
+          + clone()
+          {abstract} + draw()
+          {abstract} + draw_for_list()
+          {abstract} + getPicture()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace sample {
+    namespace model {
+      class sample.model.ShapeCell {
+          + updateItem()
+      }
+    }
+  }
+  
+
+  sample.model.AbstractProductArrow .up.|> java.lang.Cloneable
+  sample.model.ActiveObj -up-|> sample.model.Shape
+  sample.model.ArrowAssociation .up.|> java.lang.Cloneable
+  sample.model.ArrowAssociation -up-|> sample.model.AbstractProductArrow
+  sample.model.ArrowCell -up-|> javafx.scene.control.ListCell
+  sample.model.ArrowDependence .up.|> java.lang.Cloneable
+  sample.model.ArrowDependence -up-|> sample.model.AbstractProductArrow
+  sample.model.ArrowFour .up.|> java.lang.Cloneable
+  sample.model.ArrowFour -up-|> sample.model.AbstractProductArrow
+  sample.model.Component -up-|> sample.model.Shape
+  sample.model.FactoryAssociation .up.|> sample.model.AbstractFactory
+  sample.model.FactoryDependence .up.|> sample.model.AbstractFactory
+  sample.model.FactoryFour .up.|> sample.model.AbstractFactory
+  sample.model.Nodes -up-|> sample.model.Shape
+  sample.model.Obj -up-|> sample.model.Shape
+  sample.model.Shape .up.|> java.lang.Cloneable
+  sample.model.ShapeCell -up-|> javafx.scene.control.ListCell
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

@@ -1,26 +1,22 @@
 package sample;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.ObjectPropertyBase;
+
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.scene.Node;
-import javafx.scene.control.ButtonBase;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.control.TextField;
-import javafx.event.*;
-import javafx.scene.input.MouseButton;
-public class Square extends Shape{
-    public Square(){
-        prefix=new Character('-');
-        name=new String("varname");
-        type=new String("typevar");
+import javafx.scene.control.Label;
+public class ActiveObj extends Shape{
+    public ActiveObj(){
+        prefix=new Character(' ');
+        name=new String("Активный объект");
+        type=new String("");
         x=1;
         y=1;
         w=130;
         h=70;
-        style="-fx-min-width: 50; -fx-min-height: 20; -fx-background-color: darkslateblue; -fx-text-fill: black; -fx-border-insets: 3; -fx-border-width: 1; -fx-border-style: solid;";
+        style="-fx-font-weight: 60; -fx-font-size: 14; -fx-alignment: center; -fx-min-width: 50; -fx-min-height: 20; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: black; -fx-border-width: 5;";
     }
     @Override
     public void draw(Pane pane, Double pointX, Double pointY) {
@@ -28,6 +24,7 @@ public class Square extends Shape{
         textField.setPrefSize(w, h);
         textField.setLayoutX(pointX);
         textField.setLayoutY(pointY);
+      //  textField.setStyle("-fx-border-color: black; -fx-border-width: 5");
         textField.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -38,16 +35,24 @@ public class Square extends Shape{
             }
         });
         pane.getChildren().add(textField);
-
     }
-
+    @Override
+    public void draw_for_list(Pane pane, double v, double v1) {
+        TextField textField = (TextField) getPicture();// для отображения
+        textField.setPrefSize(w, h);
+        textField.setLayoutX(v);
+        textField.setLayoutY(v1);
+        pane.getChildren().add(textField);
+    }
     @Override
     public Node getPicture() {
         String text = new String(prefix.toString());
-        text +=" "+name+":"+type;
+        text +=" "+name+" "+type;
         TextField field = new TextField(text);
         field.setStyle(style);
 
         return field;
     }
+
+
 }
